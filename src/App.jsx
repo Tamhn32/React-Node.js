@@ -1,11 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import axios from "./ultil/axios.customize";
+import { useEffect } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  useEffect(() => {
+    const fetchHelloWorld = async () => {
+      const res = await axios.get(`/v1/api`);
+      console.log("Check res: ", res);
+    };
+    fetchHelloWorld();
+  });
   return <>Hello</>;
 }
 
